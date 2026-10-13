@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: nifty-oi-direction-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CORS_ORIGIN
+        value: "*"
+      - key: DEMO_MODE
+        value: "false"
+      - key: INGEST_TOKEN
+        sync: false
